@@ -1,0 +1,178 @@
+\documentclass[12pt,oneside]{article}
+\newcommand{\name}{Lorenzo Rodriguez}
+\newcommand{\class}{Math 471}
+\newcommand{\hwnumber}{1}
+
+\usepackage[margin=1in,letterpaper]{geometry}
+%geometry changes the margins
+%inside straight bracket is a parameter, inside curly bracket is name of package or whatever
+%
+
+\usepackage{amssymb,amsthm,amsmath,enumerate,fancyhdr,graphicx,tabularx}
+\usepackage{microtype}
+\usepackage{tikz}
+%Enables Graph Theory
+\usepackage{pgfplots}
+%Other Graphs
+\usepackage{mathpazo}
+%Nice Font
+\usepackage{mdframed}
+%Draws fancy boxes
+\usepackage{parskip}
+%Paragraph skip
+\linespread{1.1} 
+%Space in between lines
+
+
+\newenvironment{problem}[1]
+{\begin{mdframed}
+%Frames and crap
+        \textsc{Problem #1:}
+
+		}
+		    {\end{mdframed}}
+
+			\newenvironment{solution}
+			    {\textsc{Solution:}\\}
+				    {\newpage}
+
+
+					\pagestyle{fancy}
+					\lhead{\textbf{\name}}
+					\chead{}
+					\rhead{\textbf{\class\ Homework\ \hwnumber}}
+					\rfoot{\thepage}
+					\cfoot{}
+					\renewcommand{\headrulewidth}{0.2pt}
+
+					%lhead is the left header
+					%/textbf is text bold header
+
+
+
+
+
+
+					\begin{document}
+
+					% \begin{enumerate}[I.]
+					% \item Solution number 1
+					% \item Solution Dos
+					% \item 
+					% \end{enumerate}
+
+					%/includgraphics
+
+					%/begin{align*}
+					%Stuff in here
+					%If star isn't included then the align command will automatically number your crap
+					%/end{align*}
+
+
+					\begin{problem}{2}
+					How many orderings are there for a deck of 52 cards if all the cards of the same suit are together?
+					\end{problem}
+
+					\begin{solution}
+					%Type your solution here
+
+					Since there are four separate suits that need to stick together, then we know that immediately, there are $4!$ ways to arrange just the suits.  Then for each suit, since there are 13 cards, then there must be $13!$ ways for the cards to be arranged within their appropriate suit.  Thus we have
+					\[ 4!\cdot13!^4\]
+
+
+
+
+
+					\end{solution}
+
+
+					\begin{problem}{6}
+					How many integers greater than 5400 have both of the following properties?
+					\begin{enumerate}[(a)]
+					  \item The digits are distinct.
+					    \item The digits 2 and 7 do not occur.
+						\end{enumerate}
+						\end{problem}
+
+						\begin{solution}
+						To begin, any number that will satisfy these two properties cannot extend beyond 8 digits, because in doing so, it would force one of the digits to either repeat, or manifest as 2 or 7.  Thus, the greatest number that can satisfy this property is
+						\[98654310\]
+						Our solution would seem to be
+						\[\dbinom{8}{1}\dbinom{7}{1}\dbinom{6}{1}\dbinom{5}{1}\dbinom{4}{1}\dbinom{3}{1}\dbinom{2}{1}\dbinom{1}{1}\]
+						or simply $8!$
+						But this would not include the complete set of integers that satisfy this property because it would eliminate the possibility of having, say 5401, since by this formulation we could only achieve that number by choosing our place values like so,
+						\[00005401\]
+						which is not allowed (repetition of zeros). 
+						So then we must have a formulation for each additional digit that we take off.
+						Thus for 8 digits we have $7\cdot7!$ possibilities, for 7 digits we have $\frac{7\cdot7!}{1!}$, for 6 digits we have $\frac{7\cdot7!}{2!}$ possibilities and so on. Note that for $n$ digits we we have reduced the number of available values for the $nth$ digit (largest digit or the leftmost digit) by one because we omit zero in that place in order to ensure that our integer is exactly $n$ digits long, thereby obtaining mutually exclusive results for the set of integers satisfying this property that are 8 digits long, then 7 digits long, and so on. 
+
+						At four digits, we have 
+						\[\dbinom{7}{1}\dbinom{7}{1}\dbinom{6}{1}\dbinom{5}{1}\]
+						possible combinations, but the amount of four digit integers that satisfy our two properties below 5400 is
+
+						\[\dbinom{5}{1}\dbinom{5}{1}\dbinom{4}{1}\dbinom{3}{1}\]
+						Thus we end up with 
+						%We also don't want zero in the first place otherwise we repeat results
+						\[7\cdot7!+\frac{7\cdot7!}{1!}+\frac{7\cdot7!}{2!}+\frac{7\cdot7!}{3!}+\frac{7\cdot7!}{4!}-\frac{5\cdot5!}{2!}=95250\]
+						possible integers satisfying these properties.
+
+
+
+
+
+
+						\end{solution}
+
+						\begin{problem}{7}
+
+						In how many ways can four men and eight women be seated at a round table if there are to be two women between consecutive men around the table?
+
+						\end{problem}
+
+						\begin{solution}
+						To begin, it must be clarified that we are only counting the order in which our friends are sitting around the table (that is who a particular person is sitting next to), and not the specific seats they take.  Thus, we first note that there are $4!$ ways for each man to sit between the four lady-couples. Once those seats are assigned, we can reason that there are $8!$ ways for each woman to take one of the remaining seats.  Thus there are
+						\[8!\cdot4!=967680\]
+						separate seating arrangements.
+
+						If we do for whatever ungodly reason take into consideration the exact seat that each individual is in, then we just multiply our first result by the number of seats, 12, (since each seating arrangement can be permuted 12 times around the table) and end with
+						\[11612160\]
+						separate seating arrangements.
+
+
+
+
+
+
+						%Summations look like crap when you put them in inline mode
+						%Daum Equation Editor
+						%Codecogs or something like that
+
+
+						\end{solution}
+
+						\begin{problem}{14}
+						A classroom has two rows of eight seats each. There are 14 students, 5 of whom always sit in the front row and 4 of whom always sit in the back row. In how many ways can the students be seated?
+						\end{problem}
+
+						\begin{solution}
+						In the front row, there are eight empty seats, 5 of which will be occupied by front row only students.  Thus we have (after permuting these students' positions in the selected seats)
+						\[\dbinom{8}{5}\cdot5!=6720\]
+						ways that these same five students can sit in the front.
+
+						Likewise, in the back, there are also eight empty seats, 4 or which will be occupied by back row only students.  Thus we have (after permuting these students' positions in the selected seats)
+						\[\dbinom{8}{4}\cdot4!=1680\]
+						separate ways that the same four students can sit in the back.
+
+						Of the remaining seven seats in either rows, only five will be occupied by the remaining free floating students, thus we have
+						(after permuting these students' positions in the selected seats)
+						\[\dbinom{7}{5}\cdot5!=2520\]
+						ways that these last five students can be seated.
+
+						Then the total number of seating arrangements is:
+						\[\dbinom{8}{5}\cdot\dbinom{8}{4}\cdot\dbinom{7}{5}\cdot5!^2\cdot4!=28449792000\]
+
+
+						%Type your solution here
+						\end{solution}
+
+						\end{document}
