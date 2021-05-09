@@ -14,5 +14,7 @@ dependencies:
 - jupyterlab
 - openpyxl
 - pyyaml
+- qgrid
 - pip:
   - ansicolors
+  - easygui
