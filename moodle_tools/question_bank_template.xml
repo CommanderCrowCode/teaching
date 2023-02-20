@@ -1,0 +1,15 @@
+<?xml version="1.0" ?> <quiz>
+
+<question type="category">
+<category>
+  <text>$course$/Generated week 1</text>
+</category>
+
+<name>
+  <text>Name of question</text>
+</name>
+<questiontext format="moodle_auto_format">
+  <text>What is the answer tot his question?</text>
+</questiontext>
+
+</quiz>
