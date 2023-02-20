@@ -1,5 +1,6 @@
 ## Core latex/pdflatex auxiliary files:
 **/.DS_Store
+*.pdf
 *.aux
 *.lof
 *.log
