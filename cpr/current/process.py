@@ -1,4 +1,5 @@
 from pandas import read_csv, concat
+import pandas as pd
 from glob import glob
 
 # Settings
@@ -17,12 +18,26 @@ def combine_csvs_to_df(csv_list):
     df = concat([df,data])
   return df
 
+def column_to_lower(df):
+  df.columns = [x.lower().replace(' ', '_') for x in df.columns]
+  return df
+
+def process_csv_list(csv_list):
+  df = combine_csvs_to_df(csv_list)
+  df = column_to_lower(df)
+  return df
+
+def zipgrade_extract(input_df):
+  output = input_df[['zipgrade_id','num_questions','num_correct']].copy()
+  output.rename(columns={
+    'zipgrade_id':'student_id',
+    }, inplace=True)
+  return output
+
+
 
 # Handling current roster
-student = combine_csvs_to_df(student_list)
-# For all columns in student, rename to lower letter and replace whitespace with underscore
-student.columns = [x.lower().replace(' ', '_') for x in student.columns]
-# Drop unnecessary columns
+student = process_csv_list(student_list)
 student.drop(['field_of_study', 
               'major',
               'registration_type',
@@ -32,12 +47,48 @@ student.drop(['field_of_study',
 # Fill NA for registration status
 student['registration_status'].fillna(True, inplace=True)
 
+# Process CPR practical
+cpr_practical = process_csv_list(cpr_practical_list)
+cpr_practical = cpr_practical[['zipgrade_id','num_questions','num_correct']].copy()
+cpr_practical.rename(columns={
+  'zipgrade_id':'student_id',
+  'num_questions':'cpr_practical_num_questions',
+  'num_correct':'cpr_practical_num_correct'
+  }, inplace=True)
+# count number of digits in 'student_id' column
+cpr_practical['id_digit_count'] = cpr_practical['student_id'].astype(str).str.len()
+cpr_practical['id_digit_error'] = (cpr_practical['id_digit_count'] != 10)
 
-practical_list = './practical_cpr.csv'
+first_aid_practical = process_csv_list(first_aid_list)
+first_aid_practical = zipgrade_extract(first_aid_practical)
+written = process_csv_list(written_list)
+written = zipgrade_extract(written)
 
-student = read_csv(student_list)
-practical = read_csv(practical_list)
+# export all dataframes to xlsx
+with pd.ExcelWriter('output.xlsx') as writer:
+  student.to_excel(writer, sheet_name='student')
+  cpr_practical.to_excel(writer, sheet_name='cpr_practical')
+  first_aid_practical.to_excel(writer, sheet_name='first_aid_practical')
+  written.to_excel(writer, sheet_name='written')
 
-current = practical[practical['student_id'].isin(student['ID number'])]
-current.to_csv(output)
+
+
+
+
+# if cpr_practical['id_digit_error'].any():
+#   # Reset index and store under column
+#   cpr
+#   # get row index of error
+#   error_index = cpr_practical[cpr_practical['id_digit_error'] == True].index.tolist()
+#   print('What!')
+
+
+
+# grade_items = [cpr_practical, first_aid_practical, written]
+
+
+# practical = read_csv(practical_list)
+
+# current = practical[practical['student_id'].isin(student['ID number'])]
+# current.to_csv(output)
 
