@@ -1,0 +1,15 @@
+
+<RUBRIC>
+| Criteria         | 100 points                                                                                                     | 75 points                                                                                               | 50 points                                                                                         | 25 points                                                                    | 0 point                                              |
+|------------------|----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------------|
+| **Presentation** (50%) | - To be clear on what you would like to tell.<br> - To make it easy understanding for both talks and presenting material.<br> - To show a professional presentation. | - To be clear on what you would like to tell.<br> - To make it easy understanding for both talks and presenting material. | - To make it easy understanding only talks.                                                | - To make it easy understanding only presenting material.                       | Presentation and talk are not clear.                 |
+| **Question and Answer** (35%) | - To have a good question more than one time.<br> - To have a good answer more than one time.                              | - To have just a good question or<br> - To have just a good answer.                                    | - To have more than one question or<br> - To have more than one answer.         | - To have just a question or<br> - To have just an answer.                       | No question and answer.                              |
+| **Time Controlling** (15%) | - To present exactly on a given time.                                                                           | - To present more than a given time, but not exceed 5 min.                                              | - To present more than a given time in between 5 to 10 min.                     | - To present less than a given time.                                             | To present much more or much less than 10 min. to a given time. |
+</RUBRIC>
+
+Grade the transcription of a presentation based on the transcript below using the rubrics described between <RUBRIC></RUBRIC>. Assume that the presentation has perfect time control and average visual materials. Give any comments for improvement based on the transcript only.
+
+The presentation is part of a graduate school in technology and environment 3-minute thesis presentation. The presentation is for checking the progress of the students in finishing their graduate programs (Master's or PhD). The audience are the professors in the faculty.
+
+Give me the points in weighted format. Presentation max point is 50%, Q&A max point is 35%, and time controlling is 15%.:
+{TRANSCRIPT}
