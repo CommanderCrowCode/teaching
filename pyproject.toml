@@ -7,19 +7,21 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-opencv-python = "^4.9.0.80"
 pillow = "^10.3.0"
 flamingotools = {git = "git@github.com:CommanderCrowCode/FlamingoTools.git"}
 ipython = "^8.24.0"
 jupyter = "^1.0.0"
 notebook = "^7.1.3"
 pyperclip = "^1.8.2"
-pytesseract = "^0.3.10"
 pdf2image = "^1.17.0"
+numpy = "1.26.3"
+opencv-python = "4.9.0.80"
+pytesseract = "0.3.10"
+ipykernel = "^6.29.5"
+matplotlib = "^3.9.2"
+pandas = "^2.2.3"
+openpyxl = "^3.1.5"
 
-
-[tool.poetry.group.dev.dependencies]
-ipykernel = "^6.29.4"
 
 [build-system]
 requires = ["poetry-core"]
