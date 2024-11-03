@@ -1,0 +1,16 @@
+# Aiken question template
+[Question text 1]
+A. [Option text 1]
+B. [Option text 2]
+C. [Option text 3]
+D. [Option text 4]
+ANSWER: [Correct option letter]
+
+[Question text 2]
+A) [Option text 1]
+B) [Option text 2]
+C) [Option text 3]
+D) [Option text 4]
+E) [Option text 5]
+F) [Option text 6]
+ANSWER: [Correct option letter]
