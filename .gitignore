@@ -15,6 +15,7 @@
 .*.lb
 
 credentials.json
+token.pickle
 
 .env
 .ipynb*
