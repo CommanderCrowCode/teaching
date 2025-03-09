@@ -46,6 +46,10 @@ def get_credentials():
 
 def create_folder(service, folder_name, parent_folder_id=None, drive_id=None):
     """Create a folder in Google Drive or Shared Drive."""
+    logging.info(f"Attempting to create folder: {folder_name}")
+    logging.info(f"  parent_folder_id: {parent_folder_id}")
+    logging.info(f"  drive_id: {drive_id}")
+    
     folder_metadata = {
         'name': folder_name,
         'mimeType': 'application/vnd.google-apps.folder'
@@ -54,25 +58,37 @@ def create_folder(service, folder_name, parent_folder_id=None, drive_id=None):
     if parent_folder_id:
         folder_metadata['parents'] = [parent_folder_id]
     
-    # Use appropriate parameters for Shared Drive
-    params = {'fields': 'id'}
-    if drive_id:
-        params['supportsAllDrives'] = True
-        params['driveId'] = drive_id
-        folder_metadata.pop('parents', None)  # Remove parents if using driveId
-        params['includeItemsFromAllDrives'] = True
+    try:
+        # For Shared Drives, we need a different approach
+        if drive_id:
+            logging.info("Creating folder in Shared Drive")
+            # Method 1: Use the files.create method with supportsAllDrives parameter
+            folder = service.files().create(
+                body=folder_metadata,
+                fields='id',
+                supportsAllDrives=True
+            ).execute()
+        else:
+            logging.info("Creating folder in My Drive")
+            # Method 2: Standard approach for My Drive
+            folder = service.files().create(
+                body=folder_metadata,
+                fields='id'
+            ).execute()
         
-        # If we have a parent folder, we need to use it differently for shared drives
-        if parent_folder_id:
-            folder_metadata['parents'] = [parent_folder_id]
-    
-    folder = service.files().create(body=folder_metadata, **params).execute()
-    folder_id = folder.get('id')
-    logging.info(f"Created folder: {folder_name} (ID: {folder_id})")
-    return folder_id
+        folder_id = folder.get('id')
+        logging.info(f"Created folder: {folder_name} (ID: {folder_id})")
+        return folder_id
+    except Exception as e:
+        logging.error(f"Error creating folder {folder_name}: {str(e)}")
+        raise e
 
 def create_file(service, file_name, file_content, parent_folder_id=None, drive_id=None):
     """Create a text file with placeholder content in Google Drive or Shared Drive."""
+    logging.info(f"Attempting to create file: {file_name}")
+    logging.info(f"  parent_folder_id: {parent_folder_id}")
+    logging.info(f"  drive_id: {drive_id}")
+    
     file_metadata = {
         'name': file_name
     }
@@ -98,22 +114,32 @@ def create_file(service, file_name, file_content, parent_folder_id=None, drive_i
         resumable=True
     )
     
-    # Use appropriate parameters for Shared Drive
-    params = {'fields': 'id'}
-    if drive_id:
-        params['supportsAllDrives'] = True
-        params['includeItemsFromAllDrives'] = True
-    
-    # Create the file
-    file = service.files().create(
-        body=file_metadata,
-        media_body=media,
-        **params
-    ).execute()
-    
-    file_id = file.get('id')
-    logging.info(f"Created file: {file_name} (ID: {file_id})")
-    return file_id
+    try:
+        # For Shared Drives, we need a different approach
+        if drive_id:
+            logging.info("Creating file in Shared Drive")
+            # Method 1: Use the files.create method with supportsAllDrives parameter
+            file = service.files().create(
+                body=file_metadata,
+                media_body=media,
+                fields='id',
+                supportsAllDrives=True
+            ).execute()
+        else:
+            logging.info("Creating file in My Drive")
+            # Method 2: Standard approach for My Drive
+            file = service.files().create(
+                body=file_metadata,
+                media_body=media,
+                fields='id'
+            ).execute()
+        
+        file_id = file.get('id')
+        logging.info(f"Created file: {file_name} (ID: {file_id})")
+        return file_id
+    except Exception as e:
+        logging.error(f"Error creating file {file_name}: {str(e)}")
+        raise e
 
 def setup_aun_qa_structure(service, parent_folder_id=None, drive_id=None):
     """Set up the entire AUN-QA folder structure in Google Drive or Shared Drive."""
@@ -493,15 +519,13 @@ def setup_quality_improvement(service, parent_folder_id, drive_id=None):
     # Create files in Quality_Improvement_Plans
     create_file(service, "Annual_Improvement_Plan.xlsx", "Placeholder for annual improvement plan", parent_folder_id, drive_id)
     create_file(service, "Improvement_Actions_Tracking.xlsx", "Placeholder for improvement actions tracking", parent_folder_id, drive_id)
-    create_file(service, "Annual_Improvement_Plan.xlsx", "Placeholder for annual improvement plan", parent_folder_id)
-    create_file(service, "Improvement_Actions_Tracking.xlsx", "Placeholder for improvement actions tracking", parent_folder_id)
-    create_file(service, "PDCA_Cycle_Documentation.docx", "Placeholder for PDCA cycle documentation", parent_folder_id)
+    create_file(service, "PDCA_Cycle_Documentation.docx", "Placeholder for PDCA cycle documentation", parent_folder_id, drive_id)
     
     # Create files in Progress_Reports
-    create_file(service, "Quarter_1_Progress.pdf", "Placeholder for Q1 progress report", progress_reports_id)
-    create_file(service, "Quarter_2_Progress.pdf", "Placeholder for Q2 progress report", progress_reports_id)
-    create_file(service, "Quarter_3_Progress.pdf", "Placeholder for Q3 progress report", progress_reports_id)
-    create_file(service, "Quarter_4_Progress.pdf", "Placeholder for Q4 progress report", progress_reports_id)
+    create_file(service, "Quarter_1_Progress.pdf", "Placeholder for Q1 progress report", progress_reports_id, drive_id)
+    create_file(service, "Quarter_2_Progress.pdf", "Placeholder for Q2 progress report", progress_reports_id, drive_id)
+    create_file(service, "Quarter_3_Progress.pdf", "Placeholder for Q3 progress report", progress_reports_id, drive_id)
+    create_file(service, "Quarter_4_Progress.pdf", "Placeholder for Q4 progress report", progress_reports_id, drive_id)
 
 def main():
     """Main function to set up the AUN-QA folder structure."""
@@ -519,12 +543,25 @@ def main():
         
         if use_shared_drive:
             drive_id = input("Enter the Shared Drive ID: ").strip()
+            logging.info(f"Using Shared Drive with ID: {drive_id}")
+            
+            # Test if the service object has the proper methods for shared drives
+            try:
+                # List available shared drives to confirm API functionality
+                drives = service.drives().list().execute()
+                logging.info(f"Available drives: {drives}")
+            except Exception as e:
+                logging.error(f"Error accessing Shared Drives API: {str(e)}")
+                print(f"Error accessing Shared Drives API. You might need additional permissions or API access: {str(e)}")
+            
             use_folder = input("Do you want to create in a specific folder within the Shared Drive? (y/n): ").strip().lower() == 'y'
             if use_folder:
                 parent_folder_id = input("Enter the parent folder ID within the Shared Drive: ").strip()
+                logging.info(f"Using parent folder in Shared Drive with ID: {parent_folder_id}")
         else:
             # Using My Drive
             parent_folder_id = input("Enter parent folder ID in My Drive (or press Enter to create in root): ").strip() or None
+            logging.info(f"Using My Drive with parent folder ID: {parent_folder_id}")
         
         # Setup main structure
         folder_structure, aun_qa_folder_id = setup_aun_qa_structure(service, parent_folder_id, drive_id)
