@@ -4,7 +4,7 @@
 
 <div class="absolute bottom-10">
   <span class="font-700" style="color: #003C71;">
-    วันที่ XX เดือน XXXX พ.ศ. 25XX
+    วันที่ 18 มีนาคม พ.ศ. 2568
   </span>
 </div>
 
