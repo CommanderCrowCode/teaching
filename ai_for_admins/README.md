@@ -22,7 +22,6 @@ Some rough planning has been done and can be found at `rough_planning.md`.
 be stored within slidev project folder called `presentation`. 
 - Presentation should be broken into multiple files. Each file corresponds to
   major/logical break in the day's schedule.
-- All slides should use background image at `background/background.jpeg`
 
 ## Documents
 - When creating documents, one can either create a markdown file locally or
