@@ -126,20 +126,39 @@ def main():
         creds_data = json.load(f)
         project_id = creds_data.get('installed', {}).get('project_id', 'unknown')
     
+    # Get credentials
+    creds = get_credentials()
+    
+    # Try to build and use the service
     try:
-        creds = get_credentials()
         sheets_service = build('sheets', 'v4', credentials=creds)
-        drive_service = build('drive', 'v3', credentials=creds)
-    except Exception as e:
-        error_str = str(e)
-        if "SERVICE_DISABLED" in error_str:
-            if "sheets.googleapis.com" in error_str:
+        
+        # Test if Sheets API is enabled by making a simple request
+        try:
+            sheets_service.spreadsheets().get(spreadsheetId="1").execute()
+        except Exception as e:
+            error_str = str(e)
+            if "sheets.googleapis.com" in error_str and ("disabled" in error_str or "has not been used" in error_str):
                 check_api_enabled("sheets.googleapis.com", project_id)
-            elif "drive.googleapis.com" in error_str:
+                return
+            # Ignore 404 errors, which are expected for a non-existent spreadsheet ID
+            if "404" not in error_str:
+                raise
+        
+        drive_service = build('drive', 'v3', credentials=creds)
+        
+        # Test if Drive API is enabled
+        try:
+            drive_service.files().list(pageSize=1).execute() 
+        except Exception as e:
+            error_str = str(e)
+            if "drive.googleapis.com" in error_str and ("disabled" in error_str or "has not been used" in error_str):
                 check_api_enabled("drive.googleapis.com", project_id)
-            else:
-                print(f"⚠️  ERROR: An API is disabled: {error_str}")
-            return
+                return
+            raise
+    except Exception as e:
+        print(f"⚠️ ERROR: {str(e)}")
+        return
     
     # Create a spreadsheet for student registration data
     student_reg_spreadsheet_id = create_spreadsheet(sheets_service, "Student Registration Data - AI for Admins Workshop")
