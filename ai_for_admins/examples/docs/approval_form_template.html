@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>แบบฟอร์มขออนุมัติ - เทมเพลตตัวอย่าง</title>
+    <style>
+        body {
+            font-family: 'TH Sarabun New', 'Sarabun', sans-serif;
+            font-size: 16pt;
+            line-height: 1.5;
+            margin: 2cm;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 1cm;
+        }
+        .university-logo {
+            width: 100px;
+            height: auto;
+        }
+        .title {
+            font-size: 24pt;
+            font-weight: bold;
+            color: #003C71; /* PSU Blue */
+            margin: 0.5cm 0;
+        }
+        .form-section {
+            margin-bottom: 1cm;
+            border: 1px solid #ccc;
+            padding: 0.5cm;
+            border-radius: 0.2cm;
+        }
+        .section-title {
+            font-size: 18pt;
+            font-weight: bold;
+            color: #009CDE; /* PSU Light Blue */
+            margin-bottom: 0.5cm;
+            border-bottom: 1px solid #009CDE;
+        }
+        .form-row {
+            display: flex;
+            margin-bottom: 0.3cm;
+        }
+        .form-label {
+            width: 30%;
+            font-weight: bold;
+        }
+        .form-input {
+            width: 70%;
+            border-bottom: 1px dotted #999;
+            min-height: 0.6cm;
+        }
+        .checkbox-group {
+            margin-bottom: 0.3cm;
+        }
+        .checkbox {
+            margin-right: 0.3cm;
+        }
+        .checkbox-label {
+            margin-right: 1cm;
+        }
+        .signature-section {
+            margin-top: 1cm;
+        }
+        .signature-block {
+            width: 45%;
+            margin-bottom: 0.5cm;
+            text-align: center;
+        }
+        .signature-line {
+            border-bottom: 1px solid #000;
+            width: 60%;
+            margin: 1cm auto 0.2cm auto;
+        }
+        .signature-date {
+            margin-top: 0.3cm;
+        }
+        .left {
+            float: left;
+        }
+        .right {
+            float: right;
+        }
+        .clearfix {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img class="university-logo" src="https://www.psu.ac.th/images/logo.png" alt="University Logo">
+        <div class="title">แบบฟอร์มขออนุมัติ</div>
+        <div>คณะ[ชื่อคณะ] มหาวิทยาลัย[ชื่อมหาวิทยาลัย]</div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">1. ข้อมูลผู้ขออนุมัติ</div>
+        
+        <div class="form-row">
+            <div class="form-label">ชื่อ-นามสกุล:</div>
+            <div class="form-input"></div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-label">ตำแหน่ง:</div>
+            <div class="form-input"></div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-label">หน่วยงาน:</div>
+            <div class="form-input"></div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-label">โทรศัพท์:</div>
+            <div class="form-input"></div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-label">อีเมล:</div>
+            <div class="form-input"></div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">2. รายละเอียดการขออนุมัติ</div>
+        
+        <div class="form-row">
+            <div class="form-label">ประเภทการขออนุมัติ:</div>
+            <div class="form-input">
+                <div class="checkbox-group">
+                    <span class="checkbox">☐</span><span class="checkbox-label">การเงิน</span>
+                    <span class="checkbox">☐</span><span class="checkbox-label">การจัดซื้อจัดจ้าง</span>
+                    <span class="checkbox">☐</span><span class="checkbox-label">การเดินทาง</span>
+                    <span class="checkbox">☐</span><span class="checkbox-label">อื่นๆ</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-label">หัวข้อเรื่อง:</div>
+            <div class="form-input"></div>
+        </div>
+        
+        <div class="form-row" style="margin-bottom: 0.5cm;">
+            <div class="form-label">รายละเอียด:</div>
+            <div class="form-input"></div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-input" style="width: 100%; height: 3cm; border: 1px dotted #999; margin-bottom: 0.5cm;"></div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-label">งบประมาณที่ขอ (บาท):</div>
+            <div class="form-input"></div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-label">แหล่งเงิน:</div>
+            <div class="form-input"></div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-label">เอกสารแนบ:</div>
+            <div class="form-input">
+                <div class="checkbox-group">
+                    <span class="checkbox">☐</span><span class="checkbox-label">ใบเสนอราคา</span>
+                    <span class="checkbox">☐</span><span class="checkbox-label">ใบแจ้งหนี้</span>
+                    <span class="checkbox">☐</span><span class="checkbox-label">อื่นๆ โปรดระบุ:</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="section-title">3. การอนุมัติ</div>
+        
+        <div class="signature-section">
+            <div class="signature-block left">
+                <div>ลงชื่อผู้ขออนุมัติ</div>
+                <div class="signature-line"></div>
+                <div>(............................................)</div>
+                <div class="signature-date">วันที่: ......../......../........</div>
+            </div>
+            
+            <div class="signature-block right">
+                <div>ลงชื่อผู้อนุมัติ</div>
+                <div class="signature-line"></div>
+                <div>(............................................)</div>
+                <div>ตำแหน่ง: ...................................</div>
+                <div class="signature-date">วันที่: ......../......../........</div>
+            </div>
+            
+            <div class="clearfix"></div>
+        </div>
+        
+        <div style="margin-top: 1cm;">
+            <div class="form-row">
+                <div class="form-label">ผลการพิจารณา:</div>
+                <div class="form-input">
+                    <div class="checkbox-group">
+                        <span class="checkbox">☐</span><span class="checkbox-label">อนุมัติตามที่เสนอ</span>
+                        <span class="checkbox">☐</span><span class="checkbox-label">อนุมัติบางส่วน</span>
+                        <span class="checkbox">☐</span><span class="checkbox-label">ไม่อนุมัติ</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-label">หมายเหตุ:</div>
+                <div class="form-input"></div>
+            </div>
+        </div>
+    </div>
+
+    <div style="font-size: 12pt; text-align: center; margin-top: 1cm; color: #666;">
+        เอกสารนี้ออกแบบสำหรับการอบรม AI for Admins เท่านั้น
+    </div>
+</body>
+</html>

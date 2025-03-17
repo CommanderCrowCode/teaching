@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>รายงานการประชุม - เทมเพลตตัวอย่าง</title>
+    <style>
+        body {
+            font-family: 'TH Sarabun New', 'Sarabun', sans-serif;
+            font-size: 16pt;
+            line-height: 1.5;
+            margin: 2cm;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 1cm;
+        }
+        .title {
+            font-size: 24pt;
+            font-weight: bold;
+            color: #003C71; /* PSU Blue */
+            margin: 0.5cm 0;
+        }
+        .subtitle {
+            font-size: 18pt;
+            font-weight: bold;
+            margin-bottom: 0.5cm;
+        }
+        .meeting-info {
+            width: 100%;
+            margin-bottom: 1cm;
+        }
+        .meeting-info td {
+            padding: 0.2cm;
+            vertical-align: top;
+        }
+        .meeting-info td:first-child {
+            width: 30%;
+            font-weight: bold;
+        }
+        .section-title {
+            font-size: 18pt;
+            font-weight: bold;
+            color: #009CDE; /* PSU Light Blue */
+            margin: 1cm 0 0.5cm 0;
+            border-bottom: 1px solid #009CDE;
+        }
+        .participant {
+            margin-left: 1cm;
+        }
+        .agenda-item {
+            font-weight: bold;
+            margin-top: 0.5cm;
+        }
+        .content {
+            margin-left: 1cm;
+        }
+        p {
+            margin: 0.3cm 0;
+        }
+        .footer {
+            margin-top: 1cm;
+            font-style: italic;
+        }
+        .signature {
+            margin-top: 1cm;
+        }
+        .signature-line {
+            margin-top: 0.5cm;
+            width: 60%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">รายงานการประชุม</div>
+        <div class="subtitle">[ชื่อการประชุม]</div>
+        <div>ครั้งที่ [ครั้งที่]/[ปี พ.ศ.]</div>
+    </div>
+
+    <table class="meeting-info">
+        <tr>
+            <td>วัน เวลา และสถานที่</td>
+            <td>วัน[วันที่ประชุม] เวลา [เวลาเริ่ม] - [เวลาสิ้นสุด] น. ณ [สถานที่ประชุม]</td>
+        </tr>
+    </table>
+
+    <div class="section-title">ผู้เข้าร่วมประชุม</div>
+    <div class="participant">1. [ชื่อ-นามสกุล] [ตำแหน่ง]</div>
+    <div class="participant">2. [ชื่อ-นามสกุล] [ตำแหน่ง]</div>
+    <div class="participant">3. [ชื่อ-นามสกุล] [ตำแหน่ง]</div>
+
+    <div class="section-title">ผู้ไม่เข้าร่วมประชุม (ถ้ามี)</div>
+    <div class="participant">1. [ชื่อ-นามสกุล] [ตำแหน่ง] [เหตุผล]</div>
+
+    <div class="section-title">เริ่มประชุมเวลา [เวลาเริ่มประชุม] น.</div>
+
+    <div class="section-title">ระเบียบวาระที่ 1 เรื่องที่ประธานแจ้งให้ที่ประชุมทราบ</div>
+    <div class="agenda-item">1.1 [หัวข้อเรื่อง]</div>
+    <div class="content">
+        <p>[รายละเอียด]</p>
+        <p><b>มติที่ประชุม:</b> [มติที่ประชุม]</p>
+    </div>
+
+    <div class="section-title">ระเบียบวาระที่ 2 รับรองรายงานการประชุม</div>
+    <div class="content">
+        <p>ที่ประชุมได้พิจารณารายงานการประชุมครั้งที่ [ครั้งที่]/[ปี พ.ศ.] เมื่อวันที่ [วันที่ประชุมครั้งที่แล้ว]</p>
+        <p><b>มติที่ประชุม:</b> [รับรองรายงานการประชุมโดยไม่มีการแก้ไข/รับรองรายงานการประชุมโดยมีการแก้ไขดังนี้: (ระบุการแก้ไข)]</p>
+    </div>
+
+    <div class="section-title">ระเบียบวาระที่ 3 เรื่องสืบเนื่อง</div>
+    <div class="agenda-item">3.1 [หัวข้อเรื่อง]</div>
+    <div class="content">
+        <p>[รายละเอียด]</p>
+        <p><b>มติที่ประชุม:</b> [มติที่ประชุม]</p>
+    </div>
+
+    <div class="section-title">ระเบียบวาระที่ 4 เรื่องเสนอเพื่อพิจารณา</div>
+    <div class="agenda-item">4.1 [หัวข้อเรื่อง]</div>
+    <div class="content">
+        <p>[รายละเอียด]</p>
+        <p><b>มติที่ประชุม:</b> [มติที่ประชุม]</p>
+    </div>
+
+    <div class="section-title">ระเบียบวาระที่ 5 เรื่องอื่นๆ (ถ้ามี)</div>
+    <div class="content">
+        <p>[รายละเอียด]</p>
+    </div>
+
+    <div class="section-title">ปิดประชุมเวลา [เวลาปิดประชุม] น.</div>
+
+    <div class="signature">
+        <div style="float: left; width: 50%;">
+            <p>[ชื่อผู้จดรายงานการประชุม]</p>
+            <p>ผู้จดรายงานการประชุม</p>
+        </div>
+        <div style="float: left; width: 50%;">
+            <p>[ชื่อผู้ตรวจรายงานการประชุม]</p>
+            <p>ผู้ตรวจรายงานการประชุม</p>
+        </div>
+    </div>
+</body>
+</html>

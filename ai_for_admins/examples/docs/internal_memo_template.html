@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>บันทึกข้อความภายใน - เทมเพลตตัวอย่าง</title>
+    <style>
+        body {
+            font-family: 'TH Sarabun New', 'Sarabun', sans-serif;
+            font-size: 16pt;
+            line-height: 1.5;
+            margin: 2cm;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 1cm;
+        }
+        .university-logo {
+            width: 100px;
+            height: auto;
+        }
+        .title {
+            font-size: 24pt;
+            font-weight: bold;
+            color: #003C71; /* PSU Blue */
+            margin: 0.5cm 0;
+        }
+        .document-info {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1cm;
+        }
+        .document-info td {
+            padding: 0.2cm;
+            vertical-align: top;
+        }
+        .document-info td:first-child {
+            width: 30%;
+            font-weight: bold;
+        }
+        .content {
+            margin-bottom: 1cm;
+            min-height: 10cm;
+        }
+        .signature {
+            width: 50%;
+            margin-left: auto;
+            text-align: center;
+        }
+        p {
+            margin: 0.5cm 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img class="university-logo" src="https://www.psu.ac.th/images/logo.png" alt="University Logo">
+        <div class="title">บันทึกข้อความภายใน</div>
+    </div>
+
+    <table class="document-info">
+        <tr>
+            <td>ส่วนงาน</td>
+            <td>[ชื่อคณะ/หน่วยงาน] โทร. [หมายเลขโทรศัพท์]</td>
+        </tr>
+        <tr>
+            <td>ที่</td>
+            <td>[เลขที่หนังสือ]</td>
+        </tr>
+        <tr>
+            <td>วันที่</td>
+            <td>[วันที่]</td>
+        </tr>
+        <tr>
+            <td>เรื่อง</td>
+            <td>[ชื่อเรื่อง]</td>
+        </tr>
+        <tr>
+            <td>เรียน</td>
+            <td>[ตำแหน่งผู้รับ]</td>
+        </tr>
+    </table>
+
+    <div class="content">
+        <p>ข้อความเริ่มต้น.....</p>
+        
+        <p>เนื้อความของบันทึกฉบับนี้.....</p>
+        
+        <p>ข้อความลงท้าย.....</p>
+    </div>
+
+    <div class="signature">
+        <p>ลงชื่อ ...........................</p>
+        <p>([ชื่อ-นามสกุล])</p>
+        <p>[ตำแหน่ง]</p>
+    </div>
+</body>
+</html>
