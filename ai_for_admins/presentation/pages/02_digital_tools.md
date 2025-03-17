@@ -134,10 +134,11 @@ image: https://images.unsplash.com/photo-1516387938699-a93567ec168e?ixlib=rb-4.0
 
 <div class="flex justify-center items-center h-40">
   <div class="bg-white p-4 rounded-lg">
-    [QR Code สำหรับแบบฟอร์ม]
+     <img src="/digital_tools_survey.png" width="150"/>
   </div>
 </div>
-
+<br />
+<br />
 เวลาทำกิจกรรม: 5 นาที
 
 </div>
