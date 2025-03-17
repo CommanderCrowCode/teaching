@@ -56,20 +56,18 @@ layout: two-cols
 
 <div v-click class="mt-10">
 
-## ตัวอย่างข้อมูลที่ไม่เป็น Tidy
+## ตัวอย่างข้อมูลนักศึกษา
 
 <div class="border rounded-lg p-2 bg-gray-100">
-<img src="https://tinyurl.com/untidy-example" alt="ตัวอย่างข้อมูลที่ไม่เป็น Tidy" class="w-full"/>
+<a href="https://docs.google.com/spreadsheets/d/1Wmkw2Ellqfb9Wme72-VBJOvM1tkod7bGcFSs4B1zB5k/edit?gid=135259008#gid=135259008"> 👎ตัวอย่างข้อมูล Untidy</a>
 </div>
 
 </div>
 
 <div v-click class="mt-4">
 
-## ตัวอย่างข้อมูลที่เป็น Tidy
-
 <div class="border rounded-lg p-2 bg-gray-100">
-<img src="https://tinyurl.com/tidy-example" alt="ตัวอย่างข้อมูลที่เป็น Tidy" class="w-full"/>
+<a href="https://docs.google.com/spreadsheets/d/1Wmkw2Ellqfb9Wme72-VBJOvM1tkod7bGcFSs4B1zB5k/edit?gid=186322730#gid=186322730"> ✅ ตัวอย่างข้อมูล tidy</a>
 </div>
 
 </div>
@@ -117,8 +115,6 @@ image: https://images.unsplash.com/photo-1555421689-d68471e189f2?ixlib=rb-4.0.3&
 
 <v-clicks>
 
-## ขั้นตอนการปรับปรุงข้อมูล
-
 1. **แยกคอลัมน์ที่มีข้อมูลผสม**
    - ใช้ Data > Split text to columns
 
@@ -130,7 +126,6 @@ image: https://images.unsplash.com/photo-1555421689-d68471e189f2?ixlib=rb-4.0.3&
    - ใช้ฟังก์ชัน FIND หรือ SEARCH เพื่อตรวจสอบ
 
 4. **กำหนดรูปแบบข้อมูลให้ชัดเจน**
-   - ตัวเลข วันที่ ข้อความ ควรมีรูปแบบที่สม่ำเสมอ
 
 </v-clicks>
 
@@ -311,7 +306,7 @@ image: https://images.unsplash.com/photo-1555421689-d68471e189f2?ixlib=rb-4.0.3&
 ## ตัวอย่างข้อมูลสำหรับฝึกปฏิบัติ
 
 <div class="border rounded-lg p-2 bg-gray-100">
-<img src="https://tinyurl.com/tidy-exercise" alt="ตัวอย่างข้อมูลสำหรับฝึกปฏิบัติ" class="w-full"/>
+<img src="/faculty_sheet.png" width="180" style="display: block; margin: auto;"/>
 </div>
 
 <div class="mt-4 p-4 bg-yellow-100 rounded-lg border-l-4 border-yellow-500">
@@ -328,7 +323,7 @@ layout: center
 class: text-center
 ---
 
-# พร้อมสำหรับก้าวต่อไป
+# เริ่มใช้ AI กันดีกว่า (11:30 - 12:30)
 
 <div class="text-2xl mt-8" style="color: #315DAE;">
 ต่อไป: เริ่มต้นใช้งาน AI
