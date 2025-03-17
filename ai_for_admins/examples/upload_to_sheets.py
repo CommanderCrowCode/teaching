@@ -109,11 +109,37 @@ def csv_to_sheet(service, spreadsheet_id, sheet_name, csv_file):
     
     print(f"Uploaded data to sheet '{sheet_name}' in spreadsheet with ID: {spreadsheet_id}")
 
+def check_api_enabled(service_name, project_id):
+    """Print helpful message if the API is not enabled."""
+    console_url = f"https://console.developers.google.com/apis/api/{service_name}/overview?project={project_id}"
+    print(f"\n⚠️  ERROR: The {service_name} API is not enabled for this project.")
+    print(f"Please enable it by visiting:\n{console_url}")
+    print("\nAfter enabling the API, wait a few minutes for the changes to propagate, then run this script again.")
+    return False
+
 def main():
     """Main function to upload all CSV files to Google Sheets."""
-    creds = get_credentials()
-    sheets_service = build('sheets', 'v4', credentials=creds)
-    drive_service = build('drive', 'v3', credentials=creds)
+    # Extract project ID from credentials.json
+    credentials_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'credentials.json')
+    with open(credentials_path, 'r') as f:
+        import json
+        creds_data = json.load(f)
+        project_id = creds_data.get('installed', {}).get('project_id', 'unknown')
+    
+    try:
+        creds = get_credentials()
+        sheets_service = build('sheets', 'v4', credentials=creds)
+        drive_service = build('drive', 'v3', credentials=creds)
+    except Exception as e:
+        error_str = str(e)
+        if "SERVICE_DISABLED" in error_str:
+            if "sheets.googleapis.com" in error_str:
+                check_api_enabled("sheets.googleapis.com", project_id)
+            elif "drive.googleapis.com" in error_str:
+                check_api_enabled("drive.googleapis.com", project_id)
+            else:
+                print(f"⚠️  ERROR: An API is disabled: {error_str}")
+            return
     
     # Create a spreadsheet for student registration data
     student_reg_spreadsheet_id = create_spreadsheet(sheets_service, "Student Registration Data - AI for Admins Workshop")

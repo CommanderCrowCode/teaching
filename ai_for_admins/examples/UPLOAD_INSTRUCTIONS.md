@@ -2,13 +2,25 @@
 
 เอกสารนี้อธิบายวิธีอัปโหลดตัวอย่างข้อมูลที่สร้างขึ้นสำหรับการอบรมไปยัง Google Sheets โดยใช้สคริปต์ Python
 
-## ขั้นตอนการติดตั้ง
+## ขั้นตอนการเตรียมความพร้อม
+
+### 1. ติดตั้ง Dependencies
 
 1. ติดตั้ง Python 3.7 ขึ้นไป (หากยังไม่มี)
 2. ติดตั้ง dependencies ที่จำเป็น:
    ```
    pip install -r requirements.txt
    ```
+   
+### 2. เปิดใช้งาน Google Sheets API และ Google Drive API
+
+1. เข้าไปที่ [Google Cloud Console](https://console.cloud.google.com/)
+2. เลือกโปรเจกต์ที่เกี่ยวข้องกับ credentials.json (โปรเจกต์ "aunqa-452819")
+3. ไปที่ "APIs & Services" > "Library"
+4. ค้นหาและเปิดใช้งาน APIs ต่อไปนี้:
+   - Google Sheets API
+   - Google Drive API
+5. รอสักครู่ให้การเปิดใช้งานเสร็จสมบูรณ์
 
 ## การใช้งานสคริปต์
 
