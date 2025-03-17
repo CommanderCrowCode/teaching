@@ -8,7 +8,7 @@ background: https://images.unsplash.com/photo-1557683311-eac922347aa1?ixlib=rb-4
 title: การใช้เครื่องมือดิจิทัลและ AI เพื่อเพิ่มประสิทธิภาพการทำงาน
 info: |
   การอบรมเชิงปฏิบัติการสำหรับบุคลากรมหาวิทยาลัย
-  
+
   จัดทำโดย มหาวิทยาลัยสงขลานครินทร์
 # apply unocss classes to the current slide
 class: text-center
@@ -28,8 +28,8 @@ mdc: true
 สำหรับบุคลากรมหาวิทยาลัย
 
 <div class="absolute bottom-10 left-45">
-  <span class="font-700" style="color: #003C71;">
-    มหาวิทยาลัยสงขลานครินทร์
+  <span class="font-700" style="color: #00000;">
+    ผศ.ดร.ธันวา อาภรณ์ทิพย์
   </span>
 </div>
 
