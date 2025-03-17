@@ -148,6 +148,8 @@ layout: default
 3. เลือกสไตล์ที่ต้องการ (เช่น หัวเรื่อง 1)
 
 </v-clicks>
+</div>
+</div>
 
 ---
 
@@ -360,15 +362,11 @@ layout: two-cols
 <div class="grid grid-cols-2 gap-4">
 <div>
 
-<v-clicks>
-
 ## เอกสารตัวอย่าง: รายงานประจำปี
 
 - เอกสารที่ยังไม่มีการจัดรูปแบบ
 - มีหัวข้อหลัก หัวข้อรอง และเนื้อหา
 - ต้องการจัดรูปแบบให้เป็นระเบียบและสวยงาม
-
-## ขั้นตอนการสาธิต
 
 1. กำหนดสไตล์ให้กับหัวข้อต่างๆ
    - หัวข้อหลัก -> Heading 1
@@ -377,36 +375,34 @@ layout: two-cols
 
 2. ปรับแต่งสไตล์ตามต้องการ
    - เปลี่ยนฟอนต์, สี, ขนาด
-
+   
 3. สร้างสารบัญอัตโนมัติ
    - Insert > Table of contents
 
-</v-clicks>
-
 </div>
-<div v-click>
+<div>
 
 ## ผลลัพธ์ที่ได้
 
-<div class="border rounded-lg p-2 bg-white mt-2 mb-2">
-  <h1 class="text-xl font-bold text-blue-800 mb-1">รายงานประจำปี 2566</h1>
-  <p class="text-sm mb-2">คณะวิทยาศาสตร์ มหาวิทยาลัยนวัตกรรม</p>
+<div class="border rounded p-4 bg-white">
+  <div class="text-xl font-bold text-blue-800">รายงานประจำปี 2566</div>
+  <div class="text-sm mb-4">คณะวิทยาศาสตร์ มหาวิทยาลัยนวัตกรรม</div>
   
-  <h2 class="text-lg font-semibold text-blue-600 mt-2">สารบัญ</h2>
-  <p class="text-xs pl-3">1. บทนำ........................1</p>
-  <p class="text-xs pl-3">2. ผลการดำเนินงาน...............2</p>
-  <p class="text-xs pl-5">2.1 ด้านวิชาการ.................2</p>
-  <p class="text-xs pl-5">2.2 ด้านงานวิจัย.................5</p>
-  <p class="text-xs pl-3">3. แผนงานในอนาคต................9</p>
+  <div class="text-lg font-semibold text-blue-600 mb-2">สารบัญ</div>
+  <div class="text-xs pl-3">1. บทนำ........................1</div>
+  <div class="text-xs pl-3">2. ผลการดำเนินงาน...............2</div>
+  <div class="text-xs pl-5">2.1 ด้านวิชาการ.................2</div>
+  <div class="text-xs pl-5">2.2 ด้านงานวิจัย.................5</div>
+  <div class="text-xs pl-3">3. แผนงานในอนาคต................9</div>
 </div>
 
-<div class="border rounded-lg p-2 bg-white">
-  <h1 class="text-xl font-bold text-blue-800 mb-1">1. บทนำ</h1>
-  <p class="text-sm">รายงานประจำปีฉบับนี้จัดทำขึ้นเพื่อสรุปผลการดำเนินงานของคณะวิทยาศาสตร์ ประจำปี 2566 โดยมีวัตถุประสงค์เพื่อรายงานผลการดำเนินงานต่อผู้บริหารมหาวิทยาลัยและผู้มีส่วนได้ส่วนเสีย...</p>
+<div class="border rounded p-4 bg-white mt-4">
+  <div class="text-lg font-bold text-blue-800 mb-2">1. บทนำ</div>
+  <div class="text-sm">รายงานประจำปีฉบับนี้จัดทำขึ้นเพื่อสรุปผลการดำเนินงานของคณะวิทยาศาสตร์ ประจำปี 2566...</div>
   
-  <h1 class="text-xl font-bold text-blue-800 mt-2 mb-1">2. ผลการดำเนินงาน</h1>
-  <h2 class="text-lg font-semibold text-blue-600 mt-1 ml-2">2.1 ด้านวิชาการ</h2>
-  <p class="text-sm ml-2">ในปี 2566 คณะวิทยาศาสตร์ได้พัฒนาหลักสูตรใหม่จำนวน 2 หลักสูตร ได้แก่...</p>
+  <div class="text-lg font-bold text-blue-800 mt-3 mb-2">2. ผลการดำเนินงาน</div>
+  <div class="text-md font-semibold text-blue-600 ml-2">2.1 ด้านวิชาการ</div>
+  <div class="text-sm ml-2">ในปี 2566 คณะวิทยาศาสตร์ได้พัฒนาหลักสูตรใหม่จำนวน 2 หลักสูตร...</div>
 </div>
 
 </div>
@@ -421,8 +417,6 @@ layout: two-cols
 
 <v-clicks>
 
-## คำแนะนำในการทำกิจกรรม
-
 1. เปิดไฟล์ Google Docs ตัวอย่าง
    - คลิกลิงก์ที่แชร์ในแชท
 
@@ -435,8 +429,7 @@ layout: two-cols
    - สร้างสารบัญอัตโนมัติ
 
 4. ทดลองการทำงานร่วมกัน
-   - แชร์เอกสารกับเพื่อนในกลุ่ม
-   - ทดลองแก้ไขพร้อมกัน
+   - แชร์เอกสารกับเพื่อนในกลุ่ม เพื่อแก้ไขพร้อมกัน
 
 </v-clicks>
 
@@ -446,36 +439,18 @@ layout: two-cols
 ## ตัวอย่างเอกสารสำหรับฝึกปฏิบัติ
 
 <div class="border rounded-lg p-2 bg-gray-100">
+<a href="https://docs.google.com/document/d/1DwbWY1bRiUld9LCIX8Z-04zjXbHEmgrcDS2v-RkS500/edit?usp=sharing" target="_blank">
+<img src="/styling_exercise.png" class="mx-auto block" width="200"/>
+</a>
 <div class="text-sm overflow-auto h-60">
-<p class="font-bold">คู่มือการใช้งานระบบลงทะเบียนออนไลน์</p>
-
-<p>บทนำ</p>
-<p>คู่มือฉบับนี้จัดทำขึ้นเพื่อแนะนำวิธีการใช้งานระบบลงทะเบียนออนไลน์สำหรับนักศึกษา โดยระบบนี้พัฒนาขึ้นเพื่ออำนวยความสะดวกในการลงทะเบียนเรียน การตรวจสอบผลการเรียน และการชำระค่าธรรมเนียมการศึกษา</p>
-
-<p>การเข้าสู่ระบบ</p>
-<p>1. เข้าไปที่เว็บไซต์ https://registration.university.ac.th</p>
-<p>2. กรอกรหัสนักศึกษาและรหัสผ่าน</p>
-<p>3. คลิกปุ่ม "เข้าสู่ระบบ"</p>
-
-<p>การลงทะเบียนเรียน</p>
-<p>การค้นหารายวิชา</p>
-<p>1. คลิกที่เมนู "ลงทะเบียนเรียน"</p>
-<p>2. เลือกภาคการศึกษาที่ต้องการ</p>
-<p>3. ค้นหารายวิชาโดยรหัสวิชาหรือชื่อวิชา</p>
-
-<p>การเพิ่มรายวิชา</p>
-<p>1. คลิกปุ่ม "เพิ่ม" ที่รายวิชาที่ต้องการ</p>
-<p>2. ตรวจสอบตารางเรียนเพื่อป้องกันเวลาเรียนซ้ำซ้อน</p>
-<p>3. ยืนยันการลงทะเบียน</p>
-</div>
-</div>
 
 <div class="mt-4 p-4 bg-yellow-100 rounded-lg border-l-4 border-yellow-500">
 <strong>เวลาทำกิจกรรม:</strong> 15 นาที
 
 หากมีข้อสงสัยหรือต้องการความช่วยเหลือ โปรดยกมือหรือพิมพ์คำถามในแชท
 </div>
-
+</div>
+</div>
 </div>
 </div>
 
@@ -484,7 +459,7 @@ layout: center
 class: text-center
 ---
 
-# พร้อมสำหรับก้าวต่อไป
+# พักกันก่อน (14:45 - 15:00)
 
 <div class="text-2xl mt-8" style="color: #315DAE;">
 ต่อไป: กรณีศึกษาการประยุกต์ใช้ AI ในงานบริหารมหาวิทยาลัย
