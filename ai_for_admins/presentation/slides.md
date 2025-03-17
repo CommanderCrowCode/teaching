@@ -97,9 +97,6 @@ class: text-center
 
 # ขอบคุณที่เข้าร่วมการอบรม
 
-<div class="text-xl mt-8" style="color: #003C71;">
-มหาวิทยาลัยสงขลานครินทร์
-</div>
 
 <div class="abs-br m-6 flex gap-2">
   <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub" title="View on GitHub" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
