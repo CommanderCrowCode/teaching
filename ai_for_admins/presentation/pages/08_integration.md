@@ -318,7 +318,9 @@ class: text-center
 </div>
 
 <div v-click>
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://forms.gle/example" class="mx-auto rounded-lg shadow-xl" />
+<a href="https://forms.gle/bWTMiCfyvuVea7bh8" target="_blank">
+<img src="/eval_form.png" width="300" class="mx-auto rounded-lg shadow-xl" />
+</a>
 
 <div class="mt-4">
 โปรดสแกน QR Code เพื่อทำแบบประเมิน
